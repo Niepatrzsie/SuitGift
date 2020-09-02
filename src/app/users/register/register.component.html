@@ -1,0 +1,43 @@
+
+<style>@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');</style>
+<style>@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');</style>
+<div class="main-container">
+    <h1 class="titleHeader">Suitgift</h1>
+    <h3 class="titleAdd">No more problem with gifts,<br/>Let's suit it up ;)</h3>
+    <button class="signIn" type="button" routerLink='/login'>Sign In </button>
+    <form class="registerPanel" #userForm="ngForm" (ngSubmit)="add(userForm)" >
+        <div class="form-group">
+            <input required minlength="3" maxlength="50" class="input" type="text" id="name" [(ngModel)]="name" name="name" #nameModel="ngModel" [ngModelOptions]="{standalone: true}" placeholder="Enter your name"/>
+            <div class="alert alert-danger" *ngIf="nameModel.invalid && (nameModel.touched || nameModel.dirty)">
+                <div *ngIf="nameModel.errors.required">name field is required</div>
+                <div *ngIf="nameModel.errors.minlength">name requires at least 3 characters</div>
+            </div> 
+        </div> 
+        <div class="form-group">
+            <input required minlength="3" maxlength="50" class="input" type="text" id="surname" [(ngModel)]="surname" name="surname" #surnameModel="ngModel" [ngModelOptions]="{standalone: true}" placeholder="Enter your surname"/>
+            <div class="alert alert-danger" *ngIf="surnameModel.invalid && (surnameModel.touched || surnameModel.dirty)">
+                <div *ngIf="surnameModel.errors.required">surname field is required</div>
+                <div *ngIf="surnameModel.errors.minlength">surname requires at least 3 characters</div>
+            </div> 
+        </div>
+        <div class="form-group">
+            <input required class="input" type="date" id="birthdate" [(ngModel)]="birthdate" name="birthdate" #birthdateModel="ngModel" placeholder="Enter your birthdate"/>
+            <div class="alert alert-danger" *ngIf="birthdateModel.invalid && birthdateModel.touched">Date is required</div> 
+        </div>
+        <div class="form-group">
+            <input required class="input" minlength="3" type="text" id="email" [(ngModel)]="email" name="email" #emailModel="ngModel" [ngModelOptions]="{standalone: true}" placeholder="Enter your email"/>
+            <div class="alert alert-danger" *ngIf="emailModel.invalid && (emailModel.touched || emailModel.dirty)">
+                <div *ngIf="emailModel.errors.required">email field is required</div>
+                <div *ngIf="emailModel.errors.minlength">email requires at least 3 characters and @</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="input" required minlength="8" type="password" id="password" [(ngModel)]="password" #passwordModel="ngModel" [ngModelOptions]="{standalone: true}" placeholder="Enter your password"/>
+            <div class="alert alert-danger" *ngIf="passwordModel.invalid && (passwordModel.touched || passwordModel.dirty)">
+                <div *ngIf="passwordModel.errors.required">password field is required</div>
+                <div *ngIf="passwordModel.errors.minlength">password need 8 characters</div>
+            </div>
+        </div>
+        <button type="submit" class="signUp" [disabled]="!userForm.form.valid">Sign Up</button>
+    </form>
+</div>

@@ -1,0 +1,86 @@
+.main-container{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right top,
+     #f27d88, #f68183, #f9857f, #fc8a7a, #fe8f76, #fc8a7a, #fa867e, #f78282, #ea778f, #d7709b, #bf6ca4, #a36aaa);
+     display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    justify-items: center;
+    align-items: center;
+}
+.titleHeader{
+    grid-area:logo;
+    font-family: 'Dancing Script', cursive;
+    font-size: 5em;
+    color: white;
+    grid-row: 1/1; 
+    grid-column: 2/4;
+    
+}
+.titleAdd{
+    font-family: 'Lobster', cursive;
+    color: white;
+    grid-row: 3/4;
+    grid-column: 2/4;
+}
+.registerPanel{
+    grid-row: 2/3;
+    grid-column: 2/4;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+.input {
+    width: 350px;
+    height: 50px;
+    outline:none;
+    box-shadow: 0px 7px 10px -5px black;
+    border: 2px solid #7D6592;
+    margin-bottom: 7px;
+}
+.input::placeholder{
+text-align: left;
+}
+.signUp{
+    width: 350px;
+    height: 50px; 
+    border-radius: 10px;
+    background: #4B597A;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 5px solid #7D6592;
+    transition: transform .3s ease-in-out ;
+    cursor: pointer;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    outline:none;
+}
+.signUp:hover{
+    transform:scaleX(1.05);
+}
+.signIn{
+    width: 150px;
+    height: 50px;
+    position:absolute;
+    top:50px;
+    right:50px;
+    border-radius: 10px;
+    background: #4B597A;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 5px solid #7D6592;
+    transition: transform .3s ease-in-out ;
+    cursor: pointer;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    outline:none;
+}
+.signIn:hover{
+    transform:scaleX(1.05);
+}

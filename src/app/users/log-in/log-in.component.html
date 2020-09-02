@@ -1,0 +1,30 @@
+<style>@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');</style>
+<style>@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');</style>
+<div class="main-container">
+   <button class="signUp" type="button" routerLink='/register'>Sign up</button>
+    <div class="loginPanel">
+        <h1 class="titleHeader">SuitGift</h1>
+        <h2 class="napis">Welcome back!</h2> 
+        <h3 class="titleAdd">No more problem with gifts<br/> Let's suit it up!</h3>
+           <form #loginForm="ngForm" (ngSubmit)="logIn(loginForm)">
+                <div class="form-group">
+                    <input required type="text" minlength="5" class="input" id="email" [(ngModel)]="email" #emailModel="ngModel" [ngModelOptions]="{standalone: true}" placeholder="enter your email"/>
+                        <div class="alert alert-danger" *ngIf="emailModel.invalid && (emailModel.touched || emailModel.dirty)"> 
+                        <div *ngIf="emailModel.errors.minlength">Your email need minmum 8 characters</div>
+                        <div *ngIf="emailModel.errors.required">Your adres email is required</div>
+                        </div>   
+                </div>
+                <div class="form-group">
+                    <input required class="input" minlength="4" type="password" id="password" [(ngModel)]="password" #passwordModel="ngModel" [ngModelOptions]="{standalone: true}" placeholder="enter your password"/>
+                        <div class="alert alert-danger" *ngIf="passwordModel.invalid && (passwordModel.touched || passwordModel.dirty)">
+                        <div *ngIf="passwordModel.errors.required">password is required</div>
+                        <div *ngIf="passwordModel.errors.minlength">Your password has minimum 8 characters</div>
+                        </div>    
+                </div>
+            </form>
+        <button class="signIn" type="submit" [disabled]="!loginForm.form.valid">Sign In</button>
+        <div *ngIf="isLogged" routerLink='/menu'></div>
+        <p class="napis">No account yet? <a routerLink='/register'>Sign up!</a></p>
+        <p class="napis"><a href="">Forogt your password?</a></p>
+    </div>    
+</div>
